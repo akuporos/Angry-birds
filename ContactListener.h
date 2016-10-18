@@ -3,6 +3,7 @@
 #include <Box2D\Box2D.h>
 #include "Pig.h"
 #include <iostream>
+#include "Plank.h"
 
 class ContactListener : public b2ContactListener
 

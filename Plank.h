@@ -6,19 +6,19 @@
 #include "Common.h"
 #include "Damagable.h"
 
-class Plunk
+class Plank : public Damagable
 {
 	b2World& world;
 
-	sf::Texture plank1;
-	sf::Sprite sprite_planks[4];
-	b2Body* body_plank[4];
+	sf::Sprite sprite_plank;
+	b2Body* body_plank;
+
 public:
-	Plunk(std::string str, b2World& world_);
-
+	Plank(sf::Texture& planka1, int x, int y, int angle, b2World& world_);
 	void update();
-
 	void draw(sf::RenderWindow & window);
+	void damage(int hp);
+	~Plank();
 	
 };
 

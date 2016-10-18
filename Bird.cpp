@@ -19,12 +19,12 @@ void Bird::launch()
 	body->SetBullet(true);
 	float force = std::min(dist,  max_length)/60;
 	body->ApplyLinearImpulseToCenter({ force * cos(atang), force * sin(atang) }, true);
-	
 }
 
-Bird::Bird(std::string str, b2World& world_) : world(world_)
+Bird::Bird(sf::Texture& bird, b2World& world_, float dimbody_x_, float dimbody_y_) : world(world_)
 {
-	bird.loadFromFile(str);
+	dimbody_x = dimbody_x_;
+	dimbody_y = dimbody_y_;
 	sprite = sf::Sprite(bird, sf::IntRect(0, 0, frame_width, frame_height));
 	sprite.setPosition(dimbody_x, dimbody_y);
 	sprite.setOrigin(frame_width / 2, frame_height / 2);
@@ -51,17 +51,24 @@ void Bird::update()
 			}
 			this->time = clock();
 		}
+		if ((body->GetContactList() != NULL || sprite.getPosition().x > 1024) && time_to_destroy == 1e9)
+		{
+			time_to_destroy = clock() + 3000;
+		}
+		if (clock() >= time_to_destroy)
+			destroy = true;
 	}
 }
 
 void Bird::event_handle(sf::Vector2i& mouse_coords, sf::Event& event)
 {
+	if (flag_fly) return;
 	float bird_x, bird_y;
 	switch (event.type)
 	{
 	case sf::Event::MouseButtonPressed:
 		//отводим птичку
-		if (dimbody_x - frame_width / 2 <= mouse_coords.x && mouse_coords.x <= dimbody_x + frame_width / 2 && dimbody_y - frame_height / 2 <= mouse_coords.y && mouse_coords.y <= dimbody_y + frame_height / 2)
+		if ((dimbody_x - frame_width / 2 <= mouse_coords.x && mouse_coords.x <= dimbody_x + frame_width / 2 && dimbody_y - frame_height / 2 <= mouse_coords.y && mouse_coords.y <= dimbody_y + frame_height / 2))
 			mouse_press = true;
 		break;
 	case sf::Event::MouseMoved:
@@ -87,6 +94,7 @@ void Bird::event_handle(sf::Vector2i& mouse_coords, sf::Event& event)
 		if (mouse_press)
 		{
 			launch();
+			flag_fly = true;
 			mouse_press = false;
 		}
 		break;
@@ -96,4 +104,15 @@ void Bird::event_handle(sf::Vector2i& mouse_coords, sf::Event& event)
 void Bird::draw(sf::RenderWindow& window)
 {
 	window.draw(sprite);
+}
+
+bool Bird::get_destroy_flag()
+{
+	return destroy;
+}
+
+Bird::~Bird()
+{
+	if (body)
+		world.DestroyBody(body);
 }

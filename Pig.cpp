@@ -1,8 +1,10 @@
 #include "Pig.h"
 
-Pig::Pig(std::string str, b2World& world_) : world(world_), Damagable(4000)
+Pig::Pig(sf::Texture& pig, b2World& world_, float pig_dimbody_x, float pig_dimbody_y) : world(world_), Damagable(2000)
 {
-	pig.loadFromFile(str);
+	dimbody_x = pig_dimbody_x;
+	dimbody_y = pig_dimbody_y;
+
 	sprite = sf::Sprite(pig, sf::IntRect(0, 0, frame_width, frame_height));
 	sprite.setPosition(dimbody_x, dimbody_y);
 	sprite.setOrigin(frame_width / 2, frame_height / 2);
@@ -33,7 +35,7 @@ void Pig::update()
 		if (clock() - this->time >= 1000 / 0.5f)
 		{
 			sprite.setTextureRect(sf::IntRect(num_frame_x*frame_width, num_frame_y*frame_height, frame_width, frame_height));
-			num_frame_x = (num_frame_x + 1) % 3;
+			num_frame_x = rand() % 3;
 			this->time = clock();
 		}
 	}

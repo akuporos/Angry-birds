@@ -7,7 +7,7 @@ Damagable::Damagable(int hp)
 
 bool Damagable::is_alive()
 {
-	return this->hp>0;
+	return this->hp > 0;
 }
 
 

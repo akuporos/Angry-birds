@@ -8,7 +8,8 @@ public:
 	Damagable(int hp);
 	virtual void damage(int hp)
 	{
-		this->hp -= hp;
+		if(hp>21)
+			this->hp -= hp;
 	}
 	bool is_alive();
 };
