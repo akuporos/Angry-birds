@@ -1,0 +1,32 @@
+syntax = "proto2";
+import "response.proto";
+
+message Word
+{
+  required float confidence = 1;
+            
+  required string value = 2;
+}
+            
+message Result
+{
+  required float confidence = 1;
+  
+  repeated Word words = 2;
+            
+  optional string normalized = 3;
+}
+            
+message AddDataResponse
+{
+  required ConnectionResponse.ResponseCode responseCode = 1;
+            
+  repeated Result recognition = 2;
+            
+  optional bool endOfUtt = 3 [default = false];
+            
+  optional int32 messagesCount = 4 [default = 1];
+
+  
+
+}
