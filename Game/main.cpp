@@ -11,9 +11,12 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include <locale>
+#include <thread>
 
 void main()
 {
+	setlocale(0, "Russian");
 	sf::RenderWindow window(sf::VideoMode(1024, 512), "Angry birds");
 	window.setFramerateLimit(60);
 	sf::Event event;
@@ -128,9 +131,10 @@ void main()
 	std::string  level_name = "levels/lev1.txt";
 	bool game_over = false;
 	
+	
+	bool manage_by_voice = true;
+	bool voice_is_pressed = false;
 	VoiceManage voice;
-	bool manage_by_voice = false;
-	voice.send_request();
 	voice_time = clock();
 	while (window.isOpen())
 	{
@@ -196,6 +200,7 @@ void main()
 				window.close();
 				break;
 			case sf::Event::KeyPressed:
+			{
 				switch (event.key.code)
 				{
 				case sf::Keyboard::Q:
@@ -227,9 +232,25 @@ void main()
 				case sf::Keyboard::N:
 				{
 					manage_by_voice = true;
+					if (!voice_is_pressed)
+					{
+						voice.record_audio();
+					}
+					voice_is_pressed = true;
 				}
 				}
 				break;
+			}
+			case sf::Event::KeyReleased:
+			{
+				if (event.key.code == sf::Keyboard::N)
+				{
+					voice_is_pressed = false;
+					voice.send_request();
+					std::vector<std::string> words = voice.new_audio();
+					level1->voice_manage(words);
+				}
+			}
 			case sf::Event::MouseButtonPressed:
 				if (sf::IntRect(5, 2, button_pause.getSize().x, button_pause.getSize().y).contains(sf::Mouse::getPosition(window)))
 				{	//нажатие на паузу
@@ -279,14 +300,6 @@ void main()
 				level1->event_handler(sf::Mouse::getPosition(window), event);
 			}
 		}
-		//if (clock() - voice_time >= 1000)
-		if (manage_by_voice && (clock() - voice_time >= 3000))
-		{
-			std::vector<std::string> words = voice.new_audio();
-			level1->voice_manage(words);
-			voice_time = clock();
-		}
-
 
 		window.clear();
 		window.draw(sprite_back);

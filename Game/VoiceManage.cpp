@@ -4,6 +4,7 @@
 
 VoiceManage::VoiceManage()
 {
+	//recorder.start();
 }
 
 void VoiceManage::send_request()
@@ -12,10 +13,10 @@ void VoiceManage::send_request()
 	ConnectionRequest proto_request;
 	proto_request.set_speechkitversion("");
 	proto_request.set_servicename("asr_dictation");
-	proto_request.set_uuid("c4ab51e60edc40c88f6242e4a777a5a5");
+	proto_request.set_uuid("c4ab51e60e7c40c88f6242e4a777a5a5");
 	proto_request.set_apikey("ce0b1295-0fed-4336-a912-76398c0012c4");
 	std::string sl = "ce0b1295-0fed-4336-a912-76398c0012c4";
-	proto_request.set_applicationname("angry game");
+	proto_request.set_applicationname("angry_game");
 	proto_request.set_device("laptop");
 	proto_request.set_coords("0,0");
 	proto_request.set_topic("queries");
@@ -45,7 +46,7 @@ void VoiceManage::send_request()
 	bool flag_receive = false;
 	while (true)
 	{
-		socket.receive(&data, 1, received);
+		status = socket.receive(&data, 1, received);
 		if (data == '\r')
 		{
 			socket.receive(&data, 1, received);
@@ -69,7 +70,8 @@ void VoiceManage::send_request()
 	char size_element;
 	while (true)
 	{
-		socket.receive(&size_element, 1, rcv);
+		status = socket.receive(&size_element, 1, rcv);
+		std::cout << status << std::endl;
 		if (size_element == '\r')
 		{
 			status  = socket.receive(&size_element, 1, rcv);
@@ -86,9 +88,13 @@ void VoiceManage::send_request()
 	socket.receive(&deserialised[0], receive_answer, received);
 
 	proto_response.ParseFromArray(&deserialised[0], received);
-	recorder.start();
 }
 
+void VoiceManage::record_audio()
+{
+	recorder.start();
+	
+}
 
 std::vector<std::string> VoiceManage::new_audio()
 {
@@ -96,6 +102,7 @@ std::vector<std::string> VoiceManage::new_audio()
 	const sf::SoundBuffer& buffer = recorder.getBuffer();
 	std::string file_name = "my_record.wav";
 	buffer.saveToFile(file_name);
+	//recorder.start();
 	AddData add_audio;
 	std::ifstream input("my_record.wav", std::ios::binary);
 	// copies all data into buffer
@@ -103,7 +110,7 @@ std::vector<std::string> VoiceManage::new_audio()
 		std::istreambuf_iterator<char>(input)),
 		(std::istreambuf_iterator<char>()));
 	add_audio.set_audiodata(&bin_file[0], bin_file.size());
-	add_audio.set_lastchunk(false);
+	add_audio.set_lastchunk(true);
 	int array_size = add_audio.ByteSize();
 	char* request_array = new char[array_size];
 	add_audio.SerializeToArray(request_array, array_size);
@@ -116,8 +123,6 @@ std::vector<std::string> VoiceManage::new_audio()
 	socket.send(str.c_str(), s);
 	socket.send("\r\n", 2);
 	socket.send(request_array, array_size);
-	
-	recorder.start();
 
 	AddDataResponse audio_recog;
 	std::size_t rcv;
@@ -145,13 +150,28 @@ std::vector<std::string> VoiceManage::new_audio()
 	audio_recog.ParseFromArray(&deserialised[0], rcv);
 	if (audio_recog.endofutt())
 	{
-		Result res = audio_recog.recognition(0);
-		for (int i = 0; i <  res.words_size(); i++)
+		/*if (audio_recog.recognition_size() != 0)
 		{
-			std::string val = Utf8_to_cp1251(res.words(i).value());
-			words.push_back(val);
+			Result res = audio_recog.recognition(0);
+			for (int i = 0; i < res.words_size(); i++)
+			{
+				std::string val = Utf8_to_cp1251(res.words(i).value());
+				words.push_back(val);
+				//std::cout << val << std::endl;
+			}
+		}*/
+		if (audio_recog.recognition_size() != 0)
+		{
+			std::string recognised_string = audio_recog.recognition(0).normalized();
+			std::stringstream word_stream(Utf8_to_cp1251(recognised_string));
+			std::string val;// = Utf8_to_cp1251(res.words(i).value());
+			while (word_stream >> val)
+			{
+				words.push_back(val);
+			}
 		}
 	}
+	socket.disconnect();
 	return words;
 }
 std::string VoiceManage::Utf8_to_cp1251(const std::string& src)

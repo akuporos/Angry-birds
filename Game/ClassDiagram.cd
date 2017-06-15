@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AddDataDefaultTypeInternal" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>add_audio.pb.cc</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WordDefaultTypeInternal" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>audio_recognition.pb.cc</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResultDefaultTypeInternal" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>audio_recognition.pb.cc</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddDataResponseDefaultTypeInternal" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>audio_recognition.pb.cc</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConnectionRequestDefaultTypeInternal" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>request.pb.cc</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdvancedASROptionsDefaultTypeInternal" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>request.pb.cc</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConnectionResponseDefaultTypeInternal" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>response.pb.cc</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddData" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAIAEBABAAAAAAAAIAAABAAIACAAgAAAAAAA=</HashCode>
+      <FileName>add_audio.pb.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Word" Collapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAEBABAAAAAAAAIAAABAAIACAIgAAAAAAA=</HashCode>
+      <FileName>audio_recognition.pb.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Result" Collapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEBABAAAAAAAQIAAABAAIACAAgBAAAAAA=</HashCode>
+      <FileName>audio_recognition.pb.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddDataResponse" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEhABAAAAAAAAIAAABAAIACAAgAAAAAQA=</HashCode>
+      <FileName>audio_recognition.pb.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bird" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gABDkAAAgBAAAAAAAIIQAFAQCRUEAQAAAAAAAAAEAAI=</HashCode>
+      <FileName>Bird.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContactListener" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>ContactListener.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Damagable" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAoAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Damagable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Level" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCAEBAAgICAFEIABQqAABwAAEgAIIABAABgAAAEACA=</HashCode>
+      <FileName>Level.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu" Collapsed="true">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAAAAAIABAAAEAAAIQAAAAAECIACBIIAAAQAAAIAA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pig" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABEAAAEAAAgAAAgAICAAAQARQAAAAAAABAAAAEAAA=</HashCode>
+      <FileName>Pig.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plank" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAgAAAAgIAAAAAAAAAAAAoAAAAABAEAAA=</HashCode>
+      <FileName>Plank.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConnectionRequest" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAEBABAAAAAAIAIAAABAAIACAAgAAAAAAA=</HashCode>
+      <FileName>request.pb.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdvancedASROptions" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEBABAAAAAAAAIAAABAAIACABgCAAAAAA=</HashCode>
+      <FileName>request.pb.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConnectionResponse" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEBABAAAAAAAAIAAABAAIACAAggAAAAAA=</HashCode>
+      <FileName>response.pb.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VoiceManage" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAABAAAABAAAAAAAAAAQAAAAAAAAKAGAAAgAAAA=</HashCode>
+      <FileName>VoiceManage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="protobuf_add_5faudio_2eproto::StaticDescriptorInitializer" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>add_audio.pb.cc</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="protobuf_add_5faudio_2eproto::TableStruct" Collapsed="true">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAABgAQABAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>add_audio.pb.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="protobuf_audio_5frecognition_2eproto::StaticDescriptorInitializer" Collapsed="true">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>audio_recognition.pb.cc</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="protobuf_audio_5frecognition_2eproto::TableStruct" Collapsed="true">
+    <Position X="7" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAABgAQABAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>audio_recognition.pb.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="protobuf_request_2eproto::StaticDescriptorInitializer" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>request.pb.cc</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="protobuf_request_2eproto::TableStruct" Collapsed="true">
+    <Position X="8.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAABgAQABAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>request.pb.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="protobuf_response_2eproto::StaticDescriptorInitializer" Collapsed="true">
+    <Position X="12.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>response.pb.cc</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="protobuf_response_2eproto::TableStruct" Collapsed="true">
+    <Position X="10.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAABgAQABAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>response.pb.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="google::protobuf::is_proto_enum&lt;::ConnectionResponse_ResponseCode&gt;" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>response.pb.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="ResponseCode" Collapsed="true">
+    <Position X="1.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>response.pb.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="ConnectionResponse_ResponseCode" Collapsed="true">
+    <Position X="1.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACBAEEAEAAAAAAAIAIAAAAAAAQABAAAAAAAACAA=</HashCode>
+      <FileName>response.pb.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

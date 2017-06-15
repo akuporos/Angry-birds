@@ -15,6 +15,8 @@ class Bird
 	const int frame_width = 42;
 	float dimbody_x = 0;
 	float dimbody_y = 0;
+	float bird_x_offset = 0;
+	float bird_y_offset = 0;
 	sf::Sprite sprite;
 	
 	b2Body* body = 0;

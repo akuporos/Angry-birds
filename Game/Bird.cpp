@@ -1,6 +1,5 @@
 #include "Bird.h"
 #include <iostream>
-#include <locale>
 void Bird::launch()
 {
 	b2BodyDef* bodyDef = new b2BodyDef();
@@ -63,32 +62,44 @@ void Bird::update()
 
 void Bird::voice_manage(std::vector<std::string>& words)
 {
-	setlocale(0, "Russian");
 	if (flag_fly)
 	{
 		return;
 	}
 	float bird_x, bird_y;
-	float bird_x_offset = 0, bird_y_offset = 0;
+	bool change_location = false;
+	int offset = 0;
 	for (int i = 0; i < words.size(); i++)
 	{
 		std::string word_recognition = words[i];
 		std::cout << word_recognition << std::endl;
+		if (word_recognition[0] >= '0' && word_recognition[0] <= '9')
+		{
+			offset = std::stoi(word_recognition);
+		}
+		if (offset > max_length)
+		{
+			offset = offset % (int)max_length;
+		}
 		if (word_recognition == "вверх")
 		{
-			bird_y_offset += 0.5;
+			bird_y_offset += offset;
+			change_location = true;
 		}
 		else if (word_recognition == "вниз")
 		{
-			bird_y_offset -= 0.5;
+			bird_y_offset -= offset;
+			change_location = true;
 		}
-		else if (word_recognition == "вправо")
+		else if (word_recognition == "вправо" || word_recognition == "права")
 		{
-			bird_x_offset += 0.5;
+			bird_x_offset -= offset;
+			change_location = true;
 		}
-		else if (word_recognition == "влево")
+		else if (word_recognition == "влево" || word_recognition == "лего")
 		{
-			bird_y_offset -= 0.5;
+			bird_x_offset += offset;
+			change_location = true;
 		}
 		else if (word_recognition == "огонь")
 		{
@@ -97,20 +108,22 @@ void Bird::voice_manage(std::vector<std::string>& words)
 			flag_fly = true;
 			break;
 		}
-		//направление полета
-		dist = sqrt((dimbody_x - bird_x_offset)*(dimbody_x - bird_x_offset) + (dimbody_y - bird_y_offset)*(dimbody_y - bird_y_offset));
-		if (dist >= max_length)
-		{
-			bird_x = dimbody_x - max_length*((dimbody_x - bird_x_offset) / dist);
-			bird_y = dimbody_y - max_length*((dimbody_y - bird_y_offset) / dist);
-			sprite.setPosition(bird_x, bird_y);
+		if (change_location)
+		{//направление полета
+			dist = sqrt((bird_x_offset)*(bird_x_offset) + (bird_y_offset)*(bird_y_offset));
+			if (dist >= max_length)
+			{
+				bird_x = dimbody_x - max_length*((bird_x_offset) / dist);
+				bird_y = dimbody_y - max_length*((bird_y_offset) / dist);
+				sprite.setPosition(bird_x, bird_y);
+			}
+			else
+			{
+				sprite.setPosition(dimbody_x - bird_x_offset, dimbody_y - bird_y_offset);
+			}
+			atang = atanf(bird_y_offset/ bird_x_offset);
 		}
-		else
-		{
-			sprite.setPosition(bird_x_offset, bird_y_offset);
-		}
-		atang = atanf((dimbody_y - bird_x_offset) / (dimbody_x - bird_y_offset));
-		
+		change_location = false;
 	}
 }
 

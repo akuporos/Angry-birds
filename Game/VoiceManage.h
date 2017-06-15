@@ -24,6 +24,7 @@ public:
 	
 	VoiceManage();
 	void send_request();
+	void record_audio();
 	std::vector<std::string> new_audio();
 	std::string Utf8_to_cp1251(const std::string & src);
 	~VoiceManage();
